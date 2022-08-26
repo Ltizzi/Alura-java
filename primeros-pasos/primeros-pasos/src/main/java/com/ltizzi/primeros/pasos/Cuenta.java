@@ -5,15 +5,30 @@ public class Cuenta {
   private int agencia;
   private int numero;
   private Cliente titular;
-  //  private String titular;
-  //  private String documento;
-  //  private String telefono;
+  private static int total = 1; // static es de la clase, no de la instancia
 
-  public Cuenta(double saldo, int agencia, int numero, Cliente titular) {
+  public Cuenta(double saldo, int agencia, Cliente titular) {
+
     this.saldo = saldo;
-    this.agencia = agencia;
-    this.numero = numero;
+    if (agencia > 0) {
+      this.agencia = agencia;
+    }
+    if (agencia <= 0) {
+      System.out.println("No se permite agencia de número 0 o negativo");
+      this.agencia = 1;
+    }
+
+    this.numero = total;
     this.titular = titular;
+    this.total++;
+  }
+
+  public Cuenta(
+      double saldo,
+      Cliente
+          titular) { // un constructor dentro de otro para fixear cierto atributo al mismo tiempo
+                     // que se permite la sobrecarga
+    this(saldo, 33, titular);
   }
 
   public Cuenta() {}
@@ -79,5 +94,15 @@ public class Cuenta {
     }
     System.out.println("El saldo disponible en la cuenta es menor al monto de la transferencia");
     return false;
+  }
+
+  public static void mostrarCuenta(Cuenta cuenta) {
+    System.out.println(
+        "Cuenta: "
+            + cuenta.getNumero()
+            + ", Titular: "
+            + cuenta.getTitular().getNombre()
+            + ", saldo: "
+            + cuenta.getSaldo());
   }
 }
