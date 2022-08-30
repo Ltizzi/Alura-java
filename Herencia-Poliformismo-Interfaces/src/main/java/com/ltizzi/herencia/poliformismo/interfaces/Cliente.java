@@ -1,14 +1,16 @@
 package com.ltizzi.herencia.poliformismo.interfaces;
 
-public class Cliente {
+public class Cliente implements Auth {
   private String nombre;
   private String documento;
   private String telefono;
+  private AuthUtil util;
 
   public Cliente(String nombre, String documento, String telefono) {
     this.nombre = nombre;
     this.documento = documento;
     this.telefono = telefono;
+    this.util = new AuthUtil();
   }
 
   public Cliente() {}
@@ -35,5 +37,15 @@ public class Cliente {
 
   public void setTelefono(String telefono) {
     this.telefono = telefono;
+  }
+
+  @Override
+  public void setClave(String clave) {
+    this.util.setClave(clave);
+  }
+
+  @Override
+  public boolean iniciarSesion(String clave) {
+    return this.util.iniciarSesion(clave);
   }
 }
