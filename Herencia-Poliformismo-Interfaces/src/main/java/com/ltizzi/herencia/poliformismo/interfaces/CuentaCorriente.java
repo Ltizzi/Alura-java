@@ -7,9 +7,10 @@ public class CuentaCorriente extends Cuenta {
   }
 
   @Override
-  public boolean retirar(double retiro) {
+  public void retirar(double retiro) throws SaldoInsuficienteException {
     double comision = 0.2;
-    return super.retirar(retiro + comision);
+    // ya no retira
+    super.retirar(retiro + comision);
   }
 
   @Override

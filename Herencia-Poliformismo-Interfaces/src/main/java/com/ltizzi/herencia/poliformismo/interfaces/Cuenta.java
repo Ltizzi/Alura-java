@@ -1,5 +1,8 @@
 package com.ltizzi.herencia.poliformismo.interfaces;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public abstract class Cuenta {
   private double saldo;
   private int agencia;
@@ -71,21 +74,30 @@ public abstract class Cuenta {
   //    this.setSaldo(saldo + deposito);
   //  }
 
-  public boolean retirar(double retiro) {
-    double saldo = this.getSaldo();
-    if (saldo >= retiro) {
-      this.setSaldo(saldo - retiro);
-      return true;
-
-    } else {
-      return false;
+  public void retirar(double retiro) throws SaldoInsuficienteException {
+    // old code que devuelve un boolean
+    //    double saldo = this.getSaldo();
+    //    if (saldo >= retiro) {
+    //      this.setSaldo(saldo - retiro);
+    //      return true;
+    //
+    //    } else {
+    //      return false;
+    //    }
+    if (this.saldo < retiro) {
+      throw new SaldoInsuficienteException("No tienes saldo");
     }
+    this.saldo -= retiro;
   }
 
   public boolean transferir(double valor, Cuenta cuentaDestino) {
     double saldo = this.getSaldo();
     if (saldo >= valor) {
-      this.retirar(valor);
+      try {
+        this.retirar(valor);
+      } catch (SaldoInsuficienteException ex) {
+        Logger.getLogger(Cuenta.class.getName()).log(Level.SEVERE, null, ex);
+      }
       System.out.println("Se ha retirado " + valor + " de la cuenta.");
       cuentaDestino.depositar(valor);
       System.out.println("Se ha depositado " + valor + " en la cuenta destino");
