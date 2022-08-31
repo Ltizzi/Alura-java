@@ -1,5 +1,9 @@
 package com.ltizzi.herencia.poliformismo.interfaces;
 
+import com.ltizzi.herencia.poliformismo.interfaces.Modelo.Cliente;
+import com.ltizzi.herencia.poliformismo.interfaces.Modelo.CuentaAhorros;
+import com.ltizzi.herencia.poliformismo.interfaces.Modelo.SaldoInsuficienteException;
+import com.ltizzi.herencia.poliformismo.interfaces.Modelo.Cuenta;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 

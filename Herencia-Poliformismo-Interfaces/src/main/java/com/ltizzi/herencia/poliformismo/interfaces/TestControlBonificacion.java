@@ -1,5 +1,10 @@
 package com.ltizzi.herencia.poliformismo.interfaces;
 
+import com.ltizzi.herencia.poliformismo.interfaces.Modelo.Contador;
+import com.ltizzi.herencia.poliformismo.interfaces.Modelo.Gerente;
+import com.ltizzi.herencia.poliformismo.interfaces.Modelo.Funcionario;
+import com.ltizzi.herencia.poliformismo.interfaces.Modelo.ControlBonificacion;
+
 public class TestControlBonificacion {
 
   public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package com.ltizzi.herencia.poliformismo.interfaces;
+package com.ltizzi.herencia.poliformismo.interfaces.Modelo;
 
 public abstract class Funcionario {
   private String nombre;

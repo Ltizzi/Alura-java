@@ -1,5 +1,8 @@
 package com.ltizzi.herencia.poliformismo.interfaces;
 
+import com.ltizzi.herencia.poliformismo.interfaces.Modelo.Gerente;
+import com.ltizzi.herencia.poliformismo.interfaces.Modelo.Funcionario;
+
 public class TestReferencias {
 
   public static void main(String[] args) {

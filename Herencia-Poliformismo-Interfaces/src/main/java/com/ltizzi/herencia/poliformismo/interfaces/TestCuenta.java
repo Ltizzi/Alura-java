@@ -1,5 +1,9 @@
 package com.ltizzi.herencia.poliformismo.interfaces;
 
+import com.ltizzi.herencia.poliformismo.interfaces.Modelo.Cliente;
+import com.ltizzi.herencia.poliformismo.interfaces.Modelo.CuentaAhorros;
+import com.ltizzi.herencia.poliformismo.interfaces.Modelo.CuentaCorriente;
+
 public class TestCuenta {
 
   public static void main(String[] args) {

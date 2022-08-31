@@ -1,8 +1,14 @@
-package com.ltizzi.herencia.poliformismo.interfaces;
+package com.ltizzi.herencia.poliformismo.interfaces.Modelo;
 
-public class Administrador extends Funcionario implements Auth {
+public class Gerente extends Funcionario implements Auth {
 
   private AuthUtil util;
+
+  public Gerente(String nombre, String documento, double salario) {
+    super(nombre, documento, salario);
+  }
+
+  public Gerente() {}
 
   @Override
   // sobreescritura

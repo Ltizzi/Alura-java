@@ -1,15 +1,29 @@
-package com.ltizzi.herencia.poliformismo.interfaces;
+package com.ltizzi.herencia.poliformismo.interfaces.Modelo;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * @author ltizzi
+ */
 public abstract class Cuenta {
+
+  // public . accesible desde cualquier parte
+  // --default - accesible dentro del paquete / simil a <package private>
+  // --protected - default + clases hijas (default y herencia)
+  // ---private . solo desde la clase misma
+
   private double saldo;
   private int agencia;
   private int numero;
   private Cliente titular;
   private static int total = 1; // static es de la clase, no de la instancia
 
+  /**
+   * @param saldo
+   * @param agencia
+   * @param titular
+   */
   public Cuenta(double saldo, int agencia, Cliente titular) {
 
     this.saldo = saldo;
@@ -74,6 +88,12 @@ public abstract class Cuenta {
   //    this.setSaldo(saldo + deposito);
   //  }
 
+  /**
+   * Este metodo retira dinero de la cuenta y si ocurre un error devuelve una excepción jejej
+   *
+   * @param retiro
+   * @throws SaldoInsuficienteException
+   */
   public void retirar(double retiro) throws SaldoInsuficienteException {
     // old code que devuelve un boolean
     //    double saldo = this.getSaldo();

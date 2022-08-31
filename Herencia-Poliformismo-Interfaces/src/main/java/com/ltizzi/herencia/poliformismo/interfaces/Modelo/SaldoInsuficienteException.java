@@ -1,4 +1,4 @@
-package com.ltizzi.herencia.poliformismo.interfaces;
+package com.ltizzi.herencia.poliformismo.interfaces.Modelo;
 
 public class SaldoInsuficienteException extends Exception {
 
