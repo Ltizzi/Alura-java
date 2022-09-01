@@ -136,4 +136,14 @@ public abstract class Cuenta {
             + ", saldo: "
             + cuenta.getSaldo());
   }
+
+  @Override
+  public String toString() {
+    return "Cuenta: "
+        + this.getNumero()
+        + ", Titular: "
+        + this.getTitular().getNombre()
+        + ", saldo: "
+        + this.getSaldo();
+  }
 }

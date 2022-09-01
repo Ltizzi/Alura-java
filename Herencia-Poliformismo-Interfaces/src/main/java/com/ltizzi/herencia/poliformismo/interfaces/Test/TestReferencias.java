@@ -1,4 +1,4 @@
-package com.ltizzi.herencia.poliformismo.interfaces;
+package com.ltizzi.herencia.poliformismo.interfaces.Test;
 
 import com.ltizzi.herencia.poliformismo.interfaces.Modelo.Gerente;
 import com.ltizzi.herencia.poliformismo.interfaces.Modelo.Funcionario;
