@@ -6,7 +6,7 @@ import java.util.logging.Logger;
 /**
  * @author ltizzi
  */
-public abstract class Cuenta {
+public abstract class Cuenta implements Comparable<Cuenta> {
 
   // public . accesible desde cualquier parte
   // --default - accesible dentro del paquete / simil a <package private>
@@ -144,6 +144,23 @@ public abstract class Cuenta {
         + ", Titular: "
         + this.getTitular().getNombre()
         + ", saldo: "
-        + this.getSaldo();
+        + this.getSaldo()
+        + ", agencia: "
+        + this.getAgencia();
+  }
+
+  @Override
+  // comparación basada en valores de los parametros y no en las referencias
+  public boolean equals(Object obj) {
+    Cuenta cuenta = (Cuenta) obj;
+    return this.agencia == cuenta.getAgencia()
+        && this.saldo == cuenta.getSaldo()
+        && this.titular == cuenta.getTitular();
+  }
+
+  @Override
+  public int compareTo(Cuenta o) {
+    // Orden natural: por agencia
+    return Integer.compare(this.agencia, o.getAgencia());
   }
 }
