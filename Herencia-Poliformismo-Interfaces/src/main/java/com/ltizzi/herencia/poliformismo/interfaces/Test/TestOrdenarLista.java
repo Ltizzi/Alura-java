@@ -87,8 +87,15 @@ public class TestOrdenarLista {
         });
 
     // lambda
-
     lista.sort((Cuenta o1, Cuenta o2) -> Integer.compare(o1.getNumero(), o2.getNumero()));
+
+    Collections.sort(
+        lista, (c1, c2) -> c1.getTitular().getNombre().compareTo(c2.getTitular().getNombre()));
+
+    lista.forEach(
+        (cuenta) -> {
+          System.out.println(cuenta);
+        }); // no hace falta siquiera especificar el tipo
   }
 }
 
