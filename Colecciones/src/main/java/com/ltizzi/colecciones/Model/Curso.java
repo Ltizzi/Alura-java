@@ -1,4 +1,7 @@
-package com.ltizzi.colecciones;
+package com.ltizzi.colecciones.Model;
+
+import java.util.Collections;
+import java.util.List;
 
 /**
  * @author ltizzi
@@ -7,10 +10,17 @@ public class Curso implements Comparable<Curso> {
 
   private String nombre;
   private int tiempo;
+  private List<Aula> aulaList;
 
   public Curso(String nombre, int tiempo) {
     this.nombre = nombre;
     this.tiempo = tiempo;
+  }
+
+  public Curso(String nombre, int tiempo, List<Aula> claseList) {
+    this.nombre = nombre;
+    this.tiempo = tiempo;
+    this.aulaList = claseList;
   }
 
   public String getNombre() {
@@ -27,6 +37,18 @@ public class Curso implements Comparable<Curso> {
 
   public void setTiempo(int tiempo) {
     this.tiempo = tiempo;
+  }
+
+  public List<Aula> getAulaList() {
+    return Collections.unmodifiableList(aulaList);
+  }
+
+  public void setAulaList(List<Aula> aulaList) {
+    this.aulaList = aulaList;
+  }
+
+  public void addAula(Aula clase) {
+    this.aulaList.add(clase);
   }
 
   @Override

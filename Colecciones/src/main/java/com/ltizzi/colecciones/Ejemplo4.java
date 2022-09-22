@@ -1,5 +1,6 @@
 package com.ltizzi.colecciones;
 
+import com.ltizzi.colecciones.Model.Curso;
 import java.util.ArrayList;
 
 /**
