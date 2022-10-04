@@ -17,6 +17,7 @@ import javax.swing.table.DefaultTableModel;
 
 import com.ltizzi.jdbc.controller.CategoriaController;
 import com.ltizzi.jdbc.controller.ProductoController;
+import com.ltizzi.jdbc.modelo.Producto;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.logging.Level;
@@ -280,10 +281,7 @@ public class ControlDeStockFrame extends JFrame {
       return;
     }
 
-    var producto = new HashMap<String, String>();
-    producto.put("NOMBRE", textoNombre.getText());
-    producto.put("DESCRIPCION", textoDescripcion.getText());
-    producto.put("CANTIDAD", String.valueOf(cantidadInt));
+    var producto = new Producto(textoNombre.getText(), textoDescripcion.getText(), cantidadInt);
 
     var categoria = comboCategoria.getSelectedItem();
 
