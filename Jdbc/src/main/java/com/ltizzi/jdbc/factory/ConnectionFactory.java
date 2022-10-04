@@ -4,6 +4,8 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.sql.DataSource;
 
 /**
@@ -25,7 +27,11 @@ public class ConnectionFactory {
   }
 
   // FACTORY creadora de conexiones,una clase que solo crea objetos de un tipo específico
-  public Connection recuperaConexion() throws SQLException {
-    return this.datasource.getConnection();
+  public Connection recuperaConexion() {
+    try {
+      return this.datasource.getConnection();
+    } catch (SQLException ex) {
+      throw new RuntimeException(ex);
+    }
   }
 }
